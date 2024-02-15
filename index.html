@@ -98,7 +98,7 @@
         </section>
 
         <section class="slider" id="tab-contact">
-            <form id="form" action="https://formspree.io/f/xzbnrznd" method="POST">
+            <form id="formContact" action="https://formspree.io/f/xzbnrznd" method="POST">
                 <h2>Contacto</h2>
                 <div class="input-group">
                     <label for="name">Nombre</label>
@@ -124,7 +124,8 @@
 
                 <section class="testimony__body testimony__body--show" data-id="1">
                     <div class="testimony__texts">
-                        <h2 class="subtitle">Mi nombre es Jordan Alexander, <span class="testimony__course">Bla bla bla</span></h2>
+                        <h2 class="subtitle">Mi nombre es Jordan Alexander, <span class="testimony__course">Bla bla
+                                bla</span></h2>
                         <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut est
                             esse, asperiores eaque totam nulla repudiandae quasi, deserunt culpa exercitationem
                             blanditiis laborum veniam laboriosam saepe reiciendis dolorem. Cum, ratione voluptatum!</p>
@@ -137,7 +138,8 @@
 
                 <section class="testimony__body" data-id="2">
                     <div class="testimony__texts">
-                        <h2 class="subtitle">Mi nombre es Alejandra Perez, <span class="testimony__course">Bla bla bla</span></h2>
+                        <h2 class="subtitle">Mi nombre es Alejandra Perez, <span class="testimony__course">Bla bla
+                                bla</span></h2>
                         <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut est
                             esse, asperiores eaque laborum veniam laboriosam saepe reiciendis dolorem. Cum, ratione
                             voluptatum!</p>
@@ -150,7 +152,8 @@
 
                 <section class="testimony__body" data-id="3">
                     <div class="testimony__texts">
-                        <h2 class="subtitle">Mi nombre es Karen Arteaga, <span class="testimony__course">Bla bla bla</span></h2>
+                        <h2 class="subtitle">Mi nombre es Karen Arteaga, <span class="testimony__course">Bla bla
+                                bla</span></h2>
                         <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut est
                             esse, niam laboriosam saepe reiciendis dolorem. Cum, ratione voluptatum!</p>
                     </div>
@@ -162,7 +165,8 @@
 
                 <section class="testimony__body" data-id="4">
                     <div class="testimony__texts">
-                        <h2 class="subtitle">Mi nombre es Kevin Ramirez, <span class="testimony__course">Bla bla bla</span></h2>
+                        <h2 class="subtitle">Mi nombre es Kevin Ramirez, <span class="testimony__course">Bla bla
+                                bla</span></h2>
                         <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut est
                             esse, niam laboriosam saepe reiciendis dolorem. Cum, ratione voluptatum!</p>
                     </div>
@@ -176,7 +180,7 @@
                 <img src="./images/rightarrow.svg" class="testimony__arrow" id="next">
             </div>
         </section>
-        
+
         <section class="questions container">
             <h2 class="subtitle">Preguntas frecuentes</h2>
             <p class="questions__paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, porro
@@ -243,7 +247,7 @@
                 <h2 class="footer__title">Altamaro</h2>
             </nav>
 
-            
+
         </section>
 
         <section class="footer__copy container">
@@ -260,6 +264,28 @@
     <script src="./js/slider.js"></script>
     <script src="./js/questions.js"></script>
     <script src="./js/menu.js"></script>
+    <script>
+        const $form = document.querySelector('#formContact')
+
+        $form.addEventListener('submit', handleSubmit)
+
+        async function handleSubmit(event) {
+            event.preventDefault()
+            const form = new FormData(this)
+            const response = await fetch(this.action, {
+                method: this.method,
+                body: form,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+
+            if (response.ok) {
+                this.reset()
+                alert('Gracias por contactarnos, te escribiremos pronto')
+            }
+        }
+    </script>
 </body>
 
 </html>
